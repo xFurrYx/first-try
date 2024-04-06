@@ -31,6 +31,8 @@
     <option>Superwizja</option>
     <option>Konsultacja wstępna 1,5h</option>
     <option>Konsultacja wstępna 1,5h</option>
+    <!--here we add hidden to front user service codes-->
+    <!--this will be used to input user's choices in texbox below-->
     
 </select>
 <select>
@@ -45,6 +47,18 @@
     <option>Nie opłacono</option>
 </select>
 
+<!--im not sure about that solution-->
+<!--please explain form labels and input to me-->
+<form>
+    <label for="komentarz1">Usługa</label>
+    <input type="text" id="Usługa" name="Usługa">
+    <br>
+    <label for="komentarz2">Płatność</label>
+    <input type="text" id="Płatność" name="Usługa">
+    <label for="komentarz3">Status</label>
+    <input type="text" id="Status" name="Status">
+    <br>
+  </form>
 <hr>
 <h3>todo:</h3>
 <ul>
@@ -52,12 +66,18 @@
     
     <p><dd>list name above the dropdown - not inside</dd></p>
 
-    <li>create a textbox under the dropdown list</li>
+    <li><s>create a textbox under the dropdown list</s></li>
     <p><li>attach service codes to options in the dropdown lists</li></p>
     <dd>to provide easied acess to later usage of the data</dd>
     </dl>
 </ul>
+
+<hr>
 <h3>Now the Javascript</h3>
+<hr>
+
+</body>
+
 <ul>
     <li>after selecting item from the dropdown list</li>
     <p><dd>detect what list is being used</dd>
