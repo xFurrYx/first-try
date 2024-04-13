@@ -2,9 +2,10 @@
 function authenticate() {
     return new Promise((resolve, reject) => {
         // Client ID and API key from the Developer Console
-        const CLIENT_ID = 'YOUR_CLIENT_ID';
-        const API_KEY = 'YOUR_API_KEY';
-
+        //test data V
+        const apiKey = process.env.API_KEY;
+        const clientId = process.env.CLIENT_ID;
+        const clientSecret = process.env.CLIENT_SECRET;
         // Array of API discovery doc URLs for APIs used by the application
         const DISCOVERY_DOCS = ['https://sheets.googleapis.com/$discovery/rest?version=v4'];
 
@@ -16,6 +17,7 @@ function authenticate() {
             gapi.client.init({
                 apiKey: API_KEY,
                 clientId: CLIENT_ID,
+                clientSecret: CLIENT_SECRET,
                 discoveryDocs: DISCOVERY_DOCS,
                 scope: SCOPES
             }).then(() => {
