@@ -104,25 +104,7 @@
   dropdownStatus.addEventListener('change', function(event) {
       displayStatus.value = event.target.value;
   });
-/*
-  // Select all dropdown elements (assuming there are 3)
-  var dropdownLists = document.querySelectorAll('select');
-
-  // Loop through each dropdown list
-  dropdownLists.forEach(function(selectElement) {
-      // Add event listener for 'change' event on each dropdown
-      selectElement.addEventListener('change', function(event) {
-          // Get the selected option
-          var selectedOption = event.target.value;
-          
-          // Update the display input field with the selected option
-          displayService.value = selectedOption;
-          displayPayment.value = selectedOption;
-          displayStatus.value = selectedOption;
-
-      });
-  });
-  */
+  
 /* to add to gsheets //https://developers.google.com/sheets/api/guides/values#node.js
 // Assuming you have already fetched the data you want to update
 var newData = [
@@ -149,13 +131,13 @@ function updateSpreadsheet() {
 </script>
 </body>
 
-<ul>
+<ul><s>
     <li>after selecting item from the dropdown list</li>
     <p><dd>detect what list is being used</dd>
     <dd>translate option into the service code</dd>    
     <dd>input selected option into textbox</dd></p>    
     <li>input <u><strong>only</strong></u> the service code - not the whole option</li>
     <dd></dd>
-
+    </s>
 </ul>
 </html>
