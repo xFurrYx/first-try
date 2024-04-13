@@ -1,0 +1,22 @@
+{
+  "name": "mateusz",
+  "version": "1.0.0",
+  "description": "testwww",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xFurrYx/first-try.git"
+  },
+  "keywords": [
+    "www"
+  ],
+  "author": "BladeOfFurry",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xFurrYx/first-try/issues"
+  },
+  "homepage": "https://github.com/xFurrYx/first-try#readme"
+}
