@@ -2,7 +2,7 @@
 const { google } = require('googleapis');
 const keys = require('C:/Users/Mateusz/Desktop/.Pulpit/calendarui-417618-6aaea0c26381.json');
 
-const client = new google.auth.JWT(
+client = new google.auth.JWT(
     keys.client_email,
     null,
     keys.private_key,
@@ -19,19 +19,39 @@ client.authorize(function(err, tokens) {
     }
 });
 
+/* THIS WORKS 
 async function gsrun(cl) {
     const gsapi = google.sheets({ version: 'v4', auth: cl });
 
     const opt = {
         spreadsheetId: '1ocLJ7tj8Tzltdq3EfmZ1YtmBo6E-XSiATgDXK4RUV0Q',
-        range: 'Sheet1!A:AA'
+        range: 'Sheet1!A1',
+        valueInputOption: 'RAW',
+        resource: {
+            values: [['Your data']],
+        },
+    };
+
+    let res = await gsapi.spreadsheets.values.update(opt);
+    console.log(res);
+}
+*/
+
+/* function to get data from google sheets */
+/*
+async function gsrun(cl) {
+    const gsapi = google.sheets({ version: 'v4', auth: cl });
+
+    const opt = {
+        spreadsheetId: '1ocLJ7tj8Tzltdq3EfmZ1YtmBo6E-XSiATgDXK4RUV0Q',
+        range: 'Sheet1!A1:B5'
     };
 
     let data = await gsapi.spreadsheets.values.get(opt);
     let dataArray = data.data.values;
     console.log(dataArray);
 }
-
+*/
 
 /*
 // Function to authenticate with Google Sheets API
