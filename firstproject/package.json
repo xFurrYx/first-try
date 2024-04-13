@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/xFurrYx/first-try/issues"
   },
-  "homepage": "https://github.com/xFurrYx/first-try#readme"
+  "homepage": "https://github.com/xFurrYx/first-try#readme",
+  "dependencies": {
+    "googleapis": "^134.0.0"
+  }
 }
