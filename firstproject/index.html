@@ -10,46 +10,50 @@
 </head>
 <body>
     <h1>Hello World!</h1>
-
-    <hr>
-    <!--TESTESTSETSTEt-->
-    <div><p>test</p></div>
-    <!-- TWOJA STARA -->
-<select>
-    <option>Usługa</option>
-    <option>Terapia indywidualna</option>
-    <option>Konsultacja wstępna 1h</option>
-    <option>Konsultacja wstępna 1,5h</option>
-    <option>Terapia grupowa</option>
-    <option>Terapia rodzinna</option>
-    <option>Terapia par</option>
-    <option>Konsultacja rodzicielska 1 os</option>
-    <option>Konsultacja rodzicielska 2 os</option>
-    <option>Konsultacja ADHD</option>
-    <option>Diagnoza ADHD</option>
-    <option>Konsultacje z seksuologiem 1 os</option>
-    <option>Konsultacje z seksuologiem 2 os</option>
-    <option>Superwizja</option>
-    <option>Konsultacja wstępna 1,5h</option>
-    <option>Konsultacja wstępna 1,5h</option>
-    <!--here we add hidden to front user service codes-->
-    <!--this will be used to input user's choices in texbox below-->
     
-</select>
-<select>
-    <option>Płatność</option>
-    <option>karta</option>
-    <option>gotówka</option>
-    <option>przelew</option>
-</select>
-<select>
-    <option>Status</option>
-    <option>Opłacono</option>
-    <option>Nie opłacono</option>
-</select>
+        <input type="text" id="displayService" readonly><p>^ USŁUGA ^</p></input>
+        <input type="text" id="displayPayment" readonly><p>^ PŁATNOŚĆ ^</p></input>
+        <input type="text" id="displayStatus" readonly><p>^ STATUS ^</p></input>
+    <hr>
+
+<div id="serviceCodeInput">
+    <select id="dropdownService">
+        <option>Usługa</option>
+        <option value="TI">Terapia indywidualna</option>
+        <option value="KW60">Konsultacja wstępna 1h</option>
+        <option value="KW90">Konsultacja wstępna 1,5h</option>
+        <option value="TG">Terapia grupowa</option>
+        <option value="TI">Terapia rodzinna</option>
+        <option value="TI">Terapia par</option>
+        <option value="TI">Konsultacja rodzicielska 1 os</option>
+        <option value="TI">Konsultacja rodzicielska 2 os</option>
+        <option value="TI">Konsultacja ADHD</option>
+        <option value="TI">Diagnoza ADHD</option>
+        <option value="TI">Konsultacje z seksuologiem 1 os</option>
+        <option value="TI">Konsultacje z seksuologiem 2 os</option>
+        <option value="TI">Superwizja</option>
+        <option value="TI">Konsultacja wstępna 1,5h</option>
+        <option value="TI">Konsultacja wstępna 1,5h</option>
+        <!--here we add hidden to front user service codes-->
+        <!--this will be used to input user's choices in texbox below-->
+    </select>
+    <select id="dropdownPayment">
+        <option>Płatność</option>
+        <option value="k">karta</option>
+        <option value="g">gotówka</option>
+        <option value="p">przelew</option>
+    </select>
+    <select id="dropdownStatus">
+        <option>Status</option>
+        <option value="o">Opłacono</option>
+        <option value="no">Nie opłacono</option>
+    </select>
+</div>
 
 <!--im not sure about that solution-->
 <!--please explain form labels and input to me-->
+
+<!-- form tbc
 <form>
     <label for="komentarz1">Usługa</label>
     <input type="text" id="Usługa" name="Usługa">
@@ -59,7 +63,10 @@
     <label for="komentarz3">Status</label>
     <input type="text" id="Status" name="Status">
     <br>
-  </form>
+</form> 
+-->
+
+<!-- TODO
 <hr>
 <h3>todo:</h3>
 <ul>
@@ -72,11 +79,74 @@
     <dd>to provide easied acess to later usage of the data</dd>
     </dl>
 </ul>
+-->
 
 <hr>
 <h3>Now the Javascript</h3>
 <hr>
+<script>
+  // Select the dropdown and the display input field
+  let dropdownService = document.querySelector('#dropdownService');
+  let dropdownPayment = document.querySelector('#dropdownPayment');
+  let dropdownStatus = document.querySelector('#dropdownStatus');
+  let displayService = document.getElementById('displayService');
+  let displayPayment = document.getElementById('displayPayment');
+  let displayStatus = document.getElementById('displayStatus');
 
+  dropdownService.addEventListener('change', function(event) {
+      displayService.value = event.target.value;
+  });
+
+  dropdownPayment.addEventListener('change', function(event) {
+      displayPayment.value = event.target.value;
+  });
+
+  dropdownStatus.addEventListener('change', function(event) {
+      displayStatus.value = event.target.value;
+  });
+/*
+  // Select all dropdown elements (assuming there are 3)
+  var dropdownLists = document.querySelectorAll('select');
+
+  // Loop through each dropdown list
+  dropdownLists.forEach(function(selectElement) {
+      // Add event listener for 'change' event on each dropdown
+      selectElement.addEventListener('change', function(event) {
+          // Get the selected option
+          var selectedOption = event.target.value;
+          
+          // Update the display input field with the selected option
+          displayService.value = selectedOption;
+          displayPayment.value = selectedOption;
+          displayStatus.value = selectedOption;
+
+      });
+  });
+  */
+/* to add to gsheets //https://developers.google.com/sheets/api/guides/values#node.js
+// Assuming you have already fetched the data you want to update
+var newData = [
+  ['A1', 'B1', 'C1'], // Example data to update in the spreadsheet
+  ['A2', 'B2', 'C2'],
+  ['A3', 'B3', 'C3']
+];
+
+// Call the Google Sheets API to update the spreadsheet
+function updateSpreadsheet() {
+  gapi.client.sheets.spreadsheets.values.update({
+    spreadsheetId: 'YOUR_SPREADSHEET_ID',
+    range: 'Sheet1!A1', // Range where you want to update data
+    valueInputOption: 'RAW',
+    resource: { values: newData }
+  }).then(function(response) {
+    console.log('Data updated successfully:', response);
+  }, function(reason) {
+    console.error('Error updating data:', reason.result.error.message);
+  });
+ 
+}
+*/
+</script>
 </body>
 
 <ul>
